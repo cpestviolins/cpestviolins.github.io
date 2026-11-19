@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geigenarchiv und Sammlung Christian Pest</title>
+  <style>
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background-color: #f8f6f2;
+      color: #2c241e;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #3b2314;
+      color: #f8f6f2;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      border-bottom: 4px solid #8c5830;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: 0.5px;
+    }
+    header p {
+      margin: 0.5rem 0 0;
+      color: #dfd3c3;
+      font-size: 1.05rem;
+    }
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    .intro-box {
+      background: #ffffff;
+      border-left: 4px solid #8c5830;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .filter-btns button {
+      background: #e8e1d7;
+      border: 1px solid #cbbba7;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.95rem;
+      border-radius: 4px;
+    }
+    .filter-btns button.active {
+      background: #3b2314;
+      color: #ffffff;
+      border-color: #3b2314;
+    }
+    #searchInput {
+      padding: 0.5rem 0.9rem;
+      border: 1px solid #cbbba7;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      min-width: 240px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    th, td {
+      padding: 0.9rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #e6dfd5;
+    }
+    th {
+      background-color: #efeae2;
+      color: #3b2314;
+      font-weight: bold;
+    }
+    tr:hover {
+      background-color: #faf8f5;
+    }
+    .violin-link {
+      color: #3b2314;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .violin-link:hover {
+      text-decoration: underline;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.82rem;
+      border-radius: 12px;
+      font-family: sans-serif;
+    }
+    .badge-archiv {
+      background-color: #e8e1d7;
+      color: #5c4332;
+    }
+    .badge-sammlung {
+      background-color: #dce9dc;
+      color: #245224;
+    }
+    .btn-small {
+      display: inline-block;
+      padding: 0.35rem 0.7rem;
+      font-size: 0.85rem;
+      font-family: sans-serif;
+      text-decoration: none;
+      border-radius: 4px;
+      background-color: #3b2314;
+      color: #ffffff;
+      margin-right: 0.3rem;
+      margin-bottom: 0.2rem;
+    }
+    .btn-arweave {
+      background-color: #8c5830;
+    }
+    .btn-small:hover {
+      opacity: 0.9;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #7a6b5d;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+      border-top: 1px solid #e0d7cb;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Geigenarchiv und Sammlung Christian Pest</h1>
+    <p>Dokumentation, Provenienz &amp; Langzeitarchiv historischer und moderner Streichinstrumente</p>
+  </header>
+
+  <main>
+    <div class="intro-box">
+      Willkommen im digitalen Verzeichnis der Geigensammlung Christian Pest (Koblenz). Jedes dokumentierte Instrument besitzt eine eindeutige Inventarnummer (G-001 ff.) sowie einen fälschungssicheren Steckbrief im dezentralen Arweave-Ewigkeitsarchiv.
+    </div>
+
+    <div class="controls">
+      <div class="filter-btns">
+        <button class="active" onclick="filterTable('alle', this)">Alle Instrumente</button>
+        <button onclick="filterTable('sammlung', this)">Aktuelle Sammlung</button>
+        <button onclick="filterTable('archiv', this)">Archiv / Verkauft</button>
+      </div>
+      <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Nach Nummer oder Name suchen...">
+    </div>
+
+    <table id="violinTable">
+      <thead>
+        <tr>
+          <th>Inventar-Nr.</th>
+          <th>Bezeichnung</th>
+          <th>Status</th>
+          <th>Dokumentation</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr data-status="archiv">
+          <td><strong>G-001</strong></td>
+          <td><a href="g001.html" class="violin-link">Florigeige</a></td>
+          <td><span class="badge badge-archiv">Archiv / Verkauft</span></td>
+          <td>
+            <a href="g001.html" class="btn-small">Details</a>
+            <a href="https://arweave.net/6d8-wW19Nn6zOSJYR9AFGtW1uWzUhZqASPk6JiAymw8" target="_blank" rel="noopener" class="btn-small btn-arweave">PDF/A Ewigkeitsarchiv</a>
+          </td>
+        </tr>
+
+        <tr data-status="archiv">
+          <td><strong>G-002</strong></td>
+          <td><a href="g002.html" class="violin-link">Palisandergeige</a></td>
+          <td><span class="badge badge-archiv">Archiv / Verkauft</span></td>
+          <td>
+            <a href="g002.html" class="btn-small">Details</a>
+            <a href="https://arweave.net/RtThnIQywjuI2-53d8EfDmPhDsBVh-Ny7IphgmVsbc" target="_blank" rel="noopener" class="btn-small btn-arweave">PDF/A Ewigkeitsarchiv</a>
+          </td>
+        </tr>
+
+        <tr data-status="archiv">
+          <td><strong>G-003</strong></td>
+          <td><a href="g003.html" class="violin-link">Ebenholz-Geige</a></td>
+          <td><span class="badge badge-archiv">Archiv / Verkauft</span></td>
+          <td>
+            <a href="g003.html" class="btn-small">Details</a>
+            <a href="https://arweave.net/ENMA4SF-lbXs_Xo4ljKp7qyqyo3impkuGMkGUj5yRAE" target="_blank" rel="noopener" class="btn-small btn-arweave">PDF/A Ewigkeitsarchiv</a>
+          </td>
+        </tr>
+
+        <tr data-status="archiv">
+          <td><strong>G-004</strong></td>
+          <td><a href="g004.html" class="violin-link">Moderne Geige</a></td>
+          <td><span class="badge badge-archiv">Archiv / Verkauft</span></td>
+          <td>
+            <a href="g004.html" class="btn-small">Details</a>
+            <a href="https://arweave.net/ttTgjUHroQ6gw25Z3J_x630Sox7b8duafg-hGGIRGUQ" target="_blank" rel="noopener" class="btn-small btn-arweave">PDF/A Ewigkeitsarchiv</a>
+          </td>
+        </tr>
+
+        <tr data-status="archiv">
+          <td><strong>G-005</strong></td>
+          <td><a href="g005.html" class="violin-link">Supersound</a></td>
+          <td><span class="badge badge-archiv">Archiv / Verkauft</span></td>
+          <td>
+            <a href="g005.html" class="btn-small">Details</a>
+            <a href="https://arweave.net/XCs2UPySoW4yCWFf-gv8TnkE9htBH2meo6pifpsKz-s" target="_blank" rel="noopener" class="btn-small btn-arweave">PDF/A Ewigkeitsarchiv</a>
+          </td>
+        </tr>
+
+        <tr data-status="archiv">
+          <td><strong>G-006</strong></td>
+          <td><a href="g006.html" class="violin-link">Leinölgeige</a></td>
+          <td><span class="badge badge-archiv">Archiv / Verkauft</span></td>
+          <td>
+            <a href="g006.html" class="btn-small">Details</a>
+            <a href="https://arweave.net/JyKURl8_8sdZ8baSV_Cu2Gc_a1nlusx79V-ZFUAJczg" target="_blank" rel="noopener" class="btn-small btn-arweave">PDF/A Ewigkeitsarchiv</a>
+          </td>
+        </tr>
+
+        <tr data-status="archiv">
+          <td><strong>G-007</strong></td>
+          <td><a href="g007.html" class="violin-link">Kriner-Geige</a></td>
+          <td><span class="badge badge-archiv">Archiv / Verkauft</span></td>
+          <td>
+            <a href="g007.html" class="btn-small">Details</a>
+            <a href="https://arweave.net/eWnwhfmxKmq2S-fE7mp4PnlCzeHpLxD55AgPBrzcexc" target="_blank" rel="noopener" class="btn-small btn-arweave">PDF/A Ewigkeitsarchiv</a>
+          </td>
+        </tr>
+
+        <!-- VORLAGE FÜR NEUE GEIGE (Einfach kopieren, ausfüllen und das Kommentarsymbol entfernen):
+        <tr data-status="sammlung">
+          <td><strong>G-008</strong></td>
+          <td><a href="g008.html" class="violin-link">Name der Geige</a></td>
+          <td><span class="badge badge-sammlung">Aktuelle Sammlung</span></td>
+          <td>
+            <a href="g008.html" class="btn-small">Details</a>
+          </td>
+        </tr>
+        -->
+      </tbody>
+    </table>
+  </main>
+
+  <footer>
+    Geigenarchiv und Sammlung Christian Pest &bull; Koblenz &bull; Langzeitarchiviert auf Arweave
+  </footer>
+
+  <script>
+    let currentFilter = 'alle';
+    function filterTable(status, btn) {
+      currentFilter = status;
+      document.querySelectorAll('.filter-btns button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      applyFilters();
+    }
+    function searchTable() {
+      applyFilters();
+    }
+    function applyFilters() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const rows = document.querySelectorAll('#violinTable tbody tr');
+      rows.forEach(row => {
+        const status = row.getAttribute('data-status');
+        const text = row.innerText.toLowerCase();
+        const matchesStatus = (currentFilter === 'alle' || status === currentFilter);
+        const matchesSearch = text.includes(query);
+        row.style.display = (matchesStatus && matchesSearch) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
