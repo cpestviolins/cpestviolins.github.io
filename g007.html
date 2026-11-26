@@ -1,161 +1,272 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>G-007 – Kriner-Geige | Geigenarchiv Christian Pest</title>
-  <style>
-    body {
-      font-family: Georgia, 'Times New Roman', serif;
-      background-color: #f8f6f2;
-      color: #2c241e;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    header {
-      background-color: #3b2314;
-      color: #f8f6f2;
-      padding: 1.8rem 1.5rem;
-      border-bottom: 4px solid #8c5830;
-    }
-    .container {
-      max-width: 820px;
-      margin: 0 auto;
-    }
-    .back-link {
-      color: #dfd3c3;
-      text-decoration: none;
-      font-family: sans-serif;
-      font-size: 0.9rem;
-    }
-    .back-link:hover {
-      text-decoration: underline;
-    }
-    header h1 {
-      margin: 0.5rem 0 0.2rem;
-      font-size: 1.9rem;
-    }
-    .subtitle {
-      color: #dfd3c3;
-      margin: 0;
-    }
-    main {
-      max-width: 820px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
-    }
-    .card {
-      background: #ffffff;
-      padding: 1.8rem;
-      border-radius: 6px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      margin-bottom: 1.5rem;
-    }
-    .archive-box {
-      background-color: #f3ede4;
-      border: 2px solid #8c5830;
-      padding: 1.5rem;
-      border-radius: 6px;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-    .archive-box h2 {
-      margin-top: 0;
-      color: #3b2314;
-      font-size: 1.3rem;
-    }
-    .btn-primary {
-      display: inline-block;
-      background-color: #8c5830;
-      color: #ffffff;
-      padding: 0.85rem 1.5rem;
-      text-decoration: none;
-      font-family: sans-serif;
-      font-weight: bold;
-      border-radius: 5px;
-      margin-top: 0.5rem;
-      font-size: 1rem;
-    }
-    .btn-primary:hover {
-      background-color: #704423;
-    }
-    .tx-id {
-      display: block;
-      margin-top: 0.8rem;
-      font-family: monospace;
-      font-size: 0.8rem;
-      color: #6b5b4d;
-      word-break: break-all;
-    }
-    .meta-table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    .meta-table th, .meta-table td {
-      padding: 0.65rem 0.5rem;
-      border-bottom: 1px solid #ebe4da;
-      text-align: left;
-    }
-    .meta-table th {
-      width: 35%;
-      color: #5c4332;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      color: #7a6b5d;
-      font-size: 0.9rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archiv G-007: Kriner-Geige | Geigensammlung Christian Pest</title>
+    <meta name="description" content="Dokumentation und Provenienz der Violine G-007 (Kriner-Geige) aus der Geigensammlung von Christian Pest, Koblenz.">
+    <style>
+:root {
+    --primary: #3b2314;
+    --secondary: #7a4928;
+    --accent: #b8860b;
+    --bg: #faf8f5;
+    --card-bg: #ffffff;
+    --text: #2c241e;
+    --muted: #6e6259;
+    --border: #e5ddd3;
+    --badge-sammlung-bg: #e6f4ea;
+    --badge-sammlung-text: #137333;
+    --badge-verkauft-bg: #fce8e6;
+    --badge-verkauft-text: #c5221f;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+header {
+    background: linear-gradient(135deg, #2b180c 0%, #4e2f1b 100%);
+    color: #fff;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    border-bottom: 4px solid var(--accent);
+}
+header h1 {
+    font-size: 2.1rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.4rem;
+}
+header p {
+    font-size: 1.05rem;
+    color: #e6d8c8;
+    font-style: italic;
+}
+.container {
+    max-width: 1050px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+.intro-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    padding: 1.4rem;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+    font-size: 0.98rem;
+}
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.search-input {
+    flex: 1;
+    min-width: 240px;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+.filter-group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.filter-btn {
+    padding: 0.6rem 1.1rem;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text);
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+.filter-btn.active, .filter-btn:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+th {
+    background-color: #f3ede4;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 0.92rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+tr:hover {
+    background-color: #fdfbf7;
+}
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+.badge-sammlung {
+    background: var(--badge-sammlung-bg);
+    color: var(--badge-sammlung-text);
+}
+.badge-verkauft {
+    background: var(--badge-verkauft-bg);
+    color: var(--badge-verkauft-text);
+}
+.btn {
+    display: inline-block;
+    padding: 0.45rem 0.85rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+.btn-arweave {
+    background: #1a5276;
+    color: #fff;
+}
+.btn:hover { opacity: 0.88; }
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    margin-bottom: 1.5rem;
+}
+.card h2 {
+    color: var(--primary);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+.card h3 {
+    color: var(--secondary);
+    margin-top: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+.arweave-box {
+    background: #eef5f9;
+    border: 1px solid #bcd4e6;
+    border-left: 5px solid #1a5276;
+    padding: 1.3rem;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+}
+.sammlung-box {
+    background: #f0f7f2;
+    border: 1px solid #c3e0cb;
+    border-left: 5px solid #137333;
+    padding: 1.3rem;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+}
+.txid {
+    font-family: monospace;
+    background: #fff;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid #d0dce5;
+    border-radius: 4px;
+    word-break: break-all;
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.88rem;
+}
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+footer a {
+    color: var(--primary);
+    text-decoration: underline;
+    margin: 0 0.6rem;
+}
+@media (max-width: 700px) {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead { display: none; }
+    tr { margin-bottom: 1rem; border: 1px solid var(--border); border-radius: 6px; padding: 0.5rem; }
+    td { border: none; padding: 0.4rem 0.6rem; }
+}
+</style>
 </head>
 <body>
-  <header>
+    <header>
+        <h1>Archiv-Nr. G-007: Kriner-Geige</h1>
+        <p>Geigensammlung &amp; Archiv Christian Pest – Koblenz</p>
+    </header>
+
     <div class="container">
-      <a href="index.html" class="back-link">&larr; Zurück zur Gesamtübersicht</a>
-      <h1>G-007 &ndash; Kriner-Geige</h1>
-      <p class="subtitle">Geigenarchiv und Sammlung Christian Pest &bull; Koblenz</p>
-    </div>
-  </header>
+        <p style="margin-bottom: 1.5rem;"><a href="index.html" class="btn btn-primary">&larr; Zurück zur Sammlungsübersicht</a></p>
 
-  <main>
-    <div class="archive-box">
-      <h2>Offizielles Ewigkeits-Zertifikat (PDF/A)</h2>
-      <p>Der vollständige Steckbrief inklusive aller Maße, Zustandsbeschreibungen, Provenienz und hochauflösenden Fotos ist unveränderlich im dezentralen Arweave-Netzwerk gesichert:</p>
-      <a href="https://arweave.net/eWnwhfmxKmq2S-fE7mp4PnlCzeHpLxD55AgPBrzcexc" target="_blank" rel="noopener" class="btn-primary">
-        Vollständige Akte (PDF/A) öffnen
-      </a>
-      <span class="tx-id">Arweave Transaction-ID: eWnwhfmxKmq2S-fE7mp4PnlCzeHpLxD55AgPBrzcexc</span>
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem; margin-bottom: 1.2rem;">
+                <h2 style="border: none; margin: 0; padding: 0;">Instrumenten-Steckbrief G-007</h2>
+                <span class="badge badge-verkauft" style="font-size: 0.95rem;">Status: Verkauft</span>
+            </div>
+
+            <p><strong>Bezeichnung:</strong> Kriner-Geige</p>
+            <p><strong>Inventar-ID:</strong> G-007 (URL-Kennung: <code>cpestviolins.github.io/g007.html</code>)</p>
+            <p style="margin-top: 0.6rem;"><strong>Archiv-Notiz:</strong> Archiviert und im Ewigkeitsarchiv hinterlegt.</p>
+
+            
+        <div class="arweave-box">
+            <h3>Permanentes Ewigkeits-Zertifikat (Arweave Permaweb)</h3>
+            <p>Die abgeschlossene Dokumentation dieses Instruments (inklusive Vermessung, Restaurationsfotos und Provenienz) ist als unveränderliche PDF/A-Datei dauerhaft im dezentralen Arweave-Netzwerk gesichert:</p>
+            <p style="margin-top: 0.8rem;">
+                <a href="https://arweave.net/eWnwhfmxKmq2S-fE7mp4PnlCzeHpLxD55AgPBrzcexc" target="_blank" rel="noopener" class="btn btn-arweave">Vollständigen PDF/A-Steckbrief öffnen &amp; herunterladen</a>
+            </p>
+            <p style="margin-top: 0.8rem; font-size: 0.85rem; color: var(--muted);">
+                <strong>Arweave Data Transaction ID:</strong><br>
+                <span class="txid">eWnwhfmxKmq2S-fE7mp4PnlCzeHpLxD55AgPBrzcexc</span>
+            </p>
+        </div>
+        
+
+            <h3>Ergänzende Online-Notizen &amp; Fotos</h3>
+            <p style="color: var(--muted);">Hier können bei Bedarf jederzeit weitere hochauflösende Fotos, Klangproben oder ergänzende Geschichten zu diesem Instrument hinterlegt werden.</p>
+        </div>
     </div>
 
-    <div class="card">
-      <h3>Kurzübersicht des Instruments</h3>
-      <table class="meta-table">
-        <tr>
-          <th>Inventar-Nummer</th>
-          <td><strong>G-007</strong></td>
-        </tr>
-        <tr>
-          <th>Bezeichnung</th>
-          <td>Kriner-Geige</td>
-        </tr>
-        <tr>
-          <th>Status</th>
-          <td>Archiv / Verkauft</td>
-        </tr>
-        <tr>
-          <th>Archiv-Ort</th>
-          <td>Geigensammlung Christian Pest, Koblenz</td>
-        </tr>
-      </table>
-      <p style="margin-top: 1.2rem; color: #5c4332; font-size: 0.95rem;">
-        <em>Hinweis: Alle detaillierten Abmessungen, Restaurationsberichte und Bilddokumentationen befinden sich in der oben verlinkten PDF/A-Gesamtakte.</em>
-      </p>
-    </div>
-  </main>
-
-  <footer>
-    Geigenarchiv und Sammlung Christian Pest &bull; https://cpestviolins.github.io/g007.html
-  </footer>
+    <footer>
+        <p>&copy; Christian Pest – Geigenarchiv Koblenz</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="index.html">Startseite</a> |
+            <a href="rechtliches.html">Impressum &amp; Haftungsausschluss</a> |
+            <a href="rechtliches.html#datenschutz">Datenschutz</a>
+        </p>
+    </footer>
 </body>
 </html>

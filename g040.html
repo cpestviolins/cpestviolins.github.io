@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archiv G-040: Kathgold | Geigensammlung Christian Pest</title>
+    <meta name="description" content="Dokumentation und Provenienz der Violine G-040 (Kathgold) aus der Geigensammlung von Christian Pest, Koblenz.">
+    <style>
+:root {
+    --primary: #3b2314;
+    --secondary: #7a4928;
+    --accent: #b8860b;
+    --bg: #faf8f5;
+    --card-bg: #ffffff;
+    --text: #2c241e;
+    --muted: #6e6259;
+    --border: #e5ddd3;
+    --badge-sammlung-bg: #e6f4ea;
+    --badge-sammlung-text: #137333;
+    --badge-verkauft-bg: #fce8e6;
+    --badge-verkauft-text: #c5221f;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+header {
+    background: linear-gradient(135deg, #2b180c 0%, #4e2f1b 100%);
+    color: #fff;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    border-bottom: 4px solid var(--accent);
+}
+header h1 {
+    font-size: 2.1rem;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.4rem;
+}
+header p {
+    font-size: 1.05rem;
+    color: #e6d8c8;
+    font-style: italic;
+}
+.container {
+    max-width: 1050px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+.intro-box {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    padding: 1.4rem;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+    font-size: 0.98rem;
+}
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+    justify-content: space-between;
+}
+.search-input {
+    flex: 1;
+    min-width: 240px;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+.filter-group {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+.filter-btn {
+    padding: 0.6rem 1.1rem;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    color: var(--text);
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+}
+.filter-btn.active, .filter-btn:hover {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+th {
+    background-color: #f3ede4;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 0.92rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+tr:hover {
+    background-color: #fdfbf7;
+}
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+.badge-sammlung {
+    background: var(--badge-sammlung-bg);
+    color: var(--badge-sammlung-text);
+}
+.badge-verkauft {
+    background: var(--badge-verkauft-bg);
+    color: var(--badge-verkauft-text);
+}
+.btn {
+    display: inline-block;
+    padding: 0.45rem 0.85rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+}
+.btn-arweave {
+    background: #1a5276;
+    color: #fff;
+}
+.btn:hover { opacity: 0.88; }
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    margin-bottom: 1.5rem;
+}
+.card h2 {
+    color: var(--primary);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+.card h3 {
+    color: var(--secondary);
+    margin-top: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+.arweave-box {
+    background: #eef5f9;
+    border: 1px solid #bcd4e6;
+    border-left: 5px solid #1a5276;
+    padding: 1.3rem;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+}
+.sammlung-box {
+    background: #f0f7f2;
+    border: 1px solid #c3e0cb;
+    border-left: 5px solid #137333;
+    padding: 1.3rem;
+    border-radius: 6px;
+    margin: 1.5rem 0;
+}
+.txid {
+    font-family: monospace;
+    background: #fff;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid #d0dce5;
+    border-radius: 4px;
+    word-break: break-all;
+    display: inline-block;
+    margin-top: 0.4rem;
+    font-size: 0.88rem;
+}
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+footer a {
+    color: var(--primary);
+    text-decoration: underline;
+    margin: 0 0.6rem;
+}
+@media (max-width: 700px) {
+    table, thead, tbody, th, td, tr { display: block; }
+    thead { display: none; }
+    tr { margin-bottom: 1rem; border: 1px solid var(--border); border-radius: 6px; padding: 0.5rem; }
+    td { border: none; padding: 0.4rem 0.6rem; }
+}
+</style>
+</head>
+<body>
+    <header>
+        <h1>Archiv-Nr. G-040: Kathgold</h1>
+        <p>Geigensammlung &amp; Archiv Christian Pest – Koblenz</p>
+    </header>
+
+    <div class="container">
+        <p style="margin-bottom: 1.5rem;"><a href="index.html" class="btn btn-primary">&larr; Zurück zur Sammlungsübersicht</a></p>
+
+        <div class="card">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; border-bottom: 2px solid var(--border); padding-bottom: 0.8rem; margin-bottom: 1.2rem;">
+                <h2 style="border: none; margin: 0; padding: 0;">Instrumenten-Steckbrief G-040</h2>
+                <span class="badge badge-sammlung" style="font-size: 0.95rem;">Status: Sammlung</span>
+            </div>
+
+            <p><strong>Bezeichnung:</strong> Kathgold</p>
+            <p><strong>Inventar-ID:</strong> G-040 (URL-Kennung: <code>cpestviolins.github.io/g040.html</code>)</p>
+            <p style="margin-top: 0.6rem;"><strong>Archiv-Notiz:</strong> Aktueller Bestand der Geigensammlung Christian Pest.</p>
+
+            
+        <div class="sammlung-box">
+            <h3>Status: Aktuelle Sammlung Christian Pest</h3>
+            <p>Dieses Instrument befindet sich derzeit noch im aktiven Bestand der Sammlung. Die Dokumentation, Vermessung und fotografische Erfassung wird fortlaufend ergänzt. Nach Abschluss der Dokumentation oder einer späteren Veräußerung wird der finale Steckbrief unveränderlich im Arweave-Ewigkeitsarchiv hinterlegt.</p>
+        </div>
+        
+
+            <h3>Ergänzende Online-Notizen &amp; Fotos</h3>
+            <p style="color: var(--muted);">Hier können bei Bedarf jederzeit weitere hochauflösende Fotos, Klangproben oder ergänzende Geschichten zu diesem Instrument hinterlegt werden.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; Christian Pest – Geigenarchiv Koblenz</p>
+        <p style="margin-top: 0.5rem;">
+            <a href="index.html">Startseite</a> |
+            <a href="rechtliches.html">Impressum &amp; Haftungsausschluss</a> |
+            <a href="rechtliches.html#datenschutz">Datenschutz</a>
+        </p>
+    </footer>
+</body>
+</html>
